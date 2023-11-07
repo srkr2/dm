@@ -3,17 +3,20 @@ library("swirl")
 swirl()
 install_course("Getting and Cleaning Data")
 library('dplyr')
-data("storms")
-head(storms)
-cran <- as_tibble(storms)
 
-select(cran,name,year)
 
-filter(cran,year>1975)
+names <- c('kumar','sai','krishna','guna','harsha','phani','prudvi','ram','sam','sujith')
+ages <- c(20,22,23,21,20,19,22,24,22,21)
+salary <- c(22.2,34.9,44,40,35,32,33,22,25,30)
+emp <- data.frame(names,ages,salary,stringsAsFactors = FALSE)
 
-arrange(cran,lat)
+cran <- tbl_df(emp)
+select(cran,names,salary)
 
-cran1 <- select(cran,name:lat)
-mutate(cran1, yearby10 = year/10)
+filter(cran,salary > 30)
 
-summarize(cran,avg_year=mean(year))
+arrange(cran,ages)
+
+mutate(cran, ageby10 = ages/10)
+
+summarize(cran,avg_age=mean(ages))
