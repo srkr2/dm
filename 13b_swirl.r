@@ -1,22 +1,25 @@
-install.packages("swirl")
-library("swirl")
-swirl()
+library(swirl)
+library(dplyr)
+
 install_course("Getting and Cleaning Data")
-library('dplyr')
+swirl()
 
 
-names <- c('kumar','sai','krishna','guna','harsha','phani','prudvi','ram','sam','sujith')
-ages <- c(20,22,23,21,20,19,22,24,22,21)
-salary <- c(22.2,34.9,44,40,35,32,33,22,25,30)
-emp <- data.frame(names,ages,salary,stringsAsFactors = FALSE)
+names <- letters[1:5]
+ages <- c(22,21,24,25,20)
+marks <- c(25,25,27,28,24)
+df <- data.frame(names,ages,marks,stringsAsFactors = FALSE)
 
-cran <- tbl_df(emp)
-select(cran,names,salary)
+tb <- tbl_df(df)
+rm("df")
+tb
 
-filter(cran,salary > 30)
+select(tb,names,marks)
 
-arrange(cran,ages)
+filter(tb,marks > 25)
 
-mutate(cran, ageby10 = ages/10)
+arrange(tb,marks)
 
-summarize(cran,avg_age=mean(ages))
+mutate(tb,percentage = (marks/30)*100)
+
+summarize(tb,avg_marks = mean(marks))
