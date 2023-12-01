@@ -1,10 +1,10 @@
-names <- c('kumar','sai','krishna','guna','harsha','phani','prudvi','ram','sam','sujith')
+names <- letters[1:10]
 ages <- c(20,22,23,21,20,19,22,24,22,21)
 salary <- c(22.2,34.9,44,40,35,32,33,22,25,30)
 emp <- data.frame(names,ages,salary,stringsAsFactors = FALSE)
 emp
 print('using rbind')
-n_row <- c("praveen",22,31)
+n_row <- c("z",22,31)
 empr_r  <- rbind(emp,n_row) 
 empr_r
 print('using cbind')
